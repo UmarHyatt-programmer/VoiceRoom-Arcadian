@@ -7,6 +7,7 @@ using PlayFab.ClientModels;
 
 public class PlayfabAuthentication : MonoBehaviour
 {
+    public string UserName;
     private void Start()
     {
         PlayFab.PlayFabSettings.TitleId = "B19B9";
@@ -22,23 +23,25 @@ public class PlayfabAuthentication : MonoBehaviour
            // CreateAccount();
         }
     }
-    public void CreateAccount()
-    {
-        var req = new RegisterPlayFabUserRequest { Email = "Guest@guest.com", Password = "123456", Username = "GuestUserName",RequireBothUsernameAndEmail=false };
-        PlayFabClientAPI.RegisterPlayFabUser(req, OnRegisterUser, OnError);
-    }
+    // public void CreateAccount()
+    // {
+    //     var req = new RegisterPlayFabUserRequest { Email = "Guest@guest.com", Password = "123456", Username = "GuestUserName",RequireBothUsernameAndEmail=false };
+    //     PlayFabClientAPI.RegisterPlayFabUser(req, OnRegisterUser, OnError);
+    // }
     public void OnRegisterUser(RegisterPlayFabUserResult result)
     {
         print(result.Username + " registered");
     }
     public void Login(string email)
     {
-        var request = new LoginWithEmailAddressRequest { Email = email, Password = "123456" };
+        var request = new LoginWithEmailAddressRequest { Email = email, Password = "123456" , InfoRequestParameters = new GetPlayerCombinedInfoRequestParams { GetPlayerProfile = true }};
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLogin, OnError);
     }
     public void OnLogin(LoginResult result)
     {
         print("login");
+        UserName=result.InfoResultPayload.PlayerProfile.DisplayName;
+        UIManager.Instance.authPanel.SetActive(false);
         PunConnection.Instance.ConnectNow();
     }
 }
