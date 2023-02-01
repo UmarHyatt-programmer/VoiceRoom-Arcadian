@@ -2327,7 +2327,6 @@ MonoBehaviour:
   playerCam: {fileID: 3873188424897621801}
   recorderSprite: {fileID: 7351916174736168371}
   speakerSprite: {fileID: 2426084259254656695}
-  showSpeakerLag: 0
 --- !u!1 &5321159211828513347
 GameObject:
   m_ObjectHideFlags: 0

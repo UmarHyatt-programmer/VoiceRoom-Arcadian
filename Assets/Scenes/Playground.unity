@@ -2745,6 +2745,9 @@ MonoBehaviour:
     type: 3}
   mobileUI: {fileID: 327919643}
   player: {fileID: 0}
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
   adminPos: {fileID: 1203963215}
   guestPos: {fileID: 1172290323}
   mobileCanvus: {fileID: 327919645}
