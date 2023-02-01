@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.iOS;
 public class UIManager : MonoBehaviour
 {
     public PlayfabAuthentication playfabAuthentication;
     public static UIManager Instance;
     private void Awake()
     {
+        
         if (Instance == null)
         {
             Instance = this;
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
         }
     }
     public Text logTxt;

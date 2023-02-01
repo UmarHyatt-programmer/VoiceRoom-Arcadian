@@ -8,6 +8,7 @@ using StarterAssets;
 public class CharacterSpawner : MonoBehaviourPunCallbacks
 {
     public GameObject adminPlayerPrefab,guestPlayerPrefab,mobileUI,player;
+    public GameObject[] players;
     public Transform adminPos,guestPos;
     public UICanvasControllerInput mobileCanvus;
     public override void OnJoinedRoom()
@@ -30,5 +31,13 @@ public class CharacterSpawner : MonoBehaviourPunCallbacks
             mobileUI.SetActive(true);
             mobileCanvus.starterAssetsInputs=player.GetComponent<StarterAssetsInputs>();
         }
+        // if(players[0]==null)
+        // {
+        //     players[0]=player;
+        // }
+        // else
+        // {
+        //     players[1]=player;
+        // }
     }
 }
