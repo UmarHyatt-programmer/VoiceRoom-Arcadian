@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Voice.PUN;
 using Photon.Pun;
-using UnityEngine.iOS;
 public class VoiceDetector : MonoBehaviour
 {
     public PhotonVoiceView photonVoiceView;

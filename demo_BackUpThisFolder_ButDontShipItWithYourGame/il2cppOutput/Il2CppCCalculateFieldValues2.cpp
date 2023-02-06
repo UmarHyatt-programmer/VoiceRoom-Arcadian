@@ -24945,8 +24945,6 @@ struct VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1  : public MonoBeh
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___recorderSprite_7;
 	// UnityEngine.GameObject VoiceDetector::speakerSprite
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___speakerSprite_8;
-	// System.Boolean VoiceDetector::showSpeakerLag
-	bool ___showSpeakerLag_9;
 };
 
 // Photon.Voice.Unity.VoiceLogger
@@ -26203,12 +26201,14 @@ struct CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81  : public Mono
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___mobileUI_7;
 	// UnityEngine.GameObject CharacterSpawner::player
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player_8;
+	// UnityEngine.GameObject[] CharacterSpawner::players
+	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* ___players_9;
 	// UnityEngine.Transform CharacterSpawner::adminPos
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___adminPos_9;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___adminPos_10;
 	// UnityEngine.Transform CharacterSpawner::guestPos
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___guestPos_10;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___guestPos_11;
 	// StarterAssets.UICanvasControllerInput CharacterSpawner::mobileCanvus
-	UICanvasControllerInput_t70B570B8D362800A345FA81C516A266A2FE5318F* ___mobileCanvus_11;
+	UICanvasControllerInput_t70B570B8D362800A345FA81C516A266A2FE5318F* ___mobileCanvus_12;
 };
 
 // Photon.Pun.UtilityScripts.ConnectAndJoinRandom
@@ -39154,9 +39154,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7898[15] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7899[2] = 
 {
 	static_cast<int32_t>(offsetof(GUILayoutOption_t8B0AA056521747053A3176FCC43E9C3608940A14, ___type_0)),static_cast<int32_t>(offsetof(GUILayoutOption_t8B0AA056521747053A3176FCC43E9C3608940A14, ___value_1)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7902[7] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7902[8] = 
 {
-	static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___adminPlayerPrefab_5)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___guestPlayerPrefab_6)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___mobileUI_7)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___player_8)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___adminPos_9)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___guestPos_10)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___mobileCanvus_11)),};
+	static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___adminPlayerPrefab_5)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___guestPlayerPrefab_6)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___mobileUI_7)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___player_8)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___players_9)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___adminPos_10)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___guestPos_11)),static_cast<int32_t>(offsetof(CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81, ___mobileCanvus_12)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7903[1] = 
 {
 	static_cast<int32_t>(offsetof(MobileDisableAutoSwitchControls_t0A648011382F1B8F00CD89B26AB30777CCBB9FDA, ___playerInput_4)),};
@@ -39202,9 +39202,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7921[6] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7922[4] = 
 {
 	static_cast<int32_t>(offsetof(UIManager_t16825A2483574F37D7D47AB939A6FA639678B1F3, ___playfabAuthentication_4)),static_cast<int32_t>(offsetof(UIManager_t16825A2483574F37D7D47AB939A6FA639678B1F3_StaticFields, ___Instance_5)),static_cast<int32_t>(offsetof(UIManager_t16825A2483574F37D7D47AB939A6FA639678B1F3, ___logTxt_6)),static_cast<int32_t>(offsetof(UIManager_t16825A2483574F37D7D47AB939A6FA639678B1F3, ___authPanel_7)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7923[6] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7923[5] = 
 {
-	static_cast<int32_t>(offsetof(VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1, ___photonVoiceView_4)),static_cast<int32_t>(offsetof(VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1, ___photonView_5)),static_cast<int32_t>(offsetof(VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1, ___playerCam_6)),static_cast<int32_t>(offsetof(VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1, ___recorderSprite_7)),static_cast<int32_t>(offsetof(VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1, ___speakerSprite_8)),static_cast<int32_t>(offsetof(VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1, ___showSpeakerLag_9)),};
+	static_cast<int32_t>(offsetof(VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1, ___photonVoiceView_4)),static_cast<int32_t>(offsetof(VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1, ___photonView_5)),static_cast<int32_t>(offsetof(VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1, ___playerCam_6)),static_cast<int32_t>(offsetof(VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1, ___recorderSprite_7)),static_cast<int32_t>(offsetof(VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1, ___speakerSprite_8)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7924[4] = 
 {
 	static_cast<int32_t>(offsetof(BackgroundMusicController_tE6B6E77380AA748A785BE3F280781EBF124F131E, ___volumeText_4)),static_cast<int32_t>(offsetof(BackgroundMusicController_tE6B6E77380AA748A785BE3F280781EBF124F131E, ___volumeSlider_5)),static_cast<int32_t>(offsetof(BackgroundMusicController_tE6B6E77380AA748A785BE3F280781EBF124F131E, ___audioSource_6)),static_cast<int32_t>(offsetof(BackgroundMusicController_tE6B6E77380AA748A785BE3F280781EBF124F131E, ___initialVolume_7)),};

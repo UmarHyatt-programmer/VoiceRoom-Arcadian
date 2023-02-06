@@ -4949,8 +4949,6 @@ struct VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1  : public MonoBeh
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___recorderSprite_7;
 	// UnityEngine.GameObject VoiceDetector::speakerSprite
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___speakerSprite_8;
-	// System.Boolean VoiceDetector::showSpeakerLag
-	bool ___showSpeakerLag_9;
 };
 
 // UnityEngine.EventSystems.BaseInputModule
@@ -5354,12 +5352,14 @@ struct CharacterSpawner_tE88A997C67AFB920943C1B8555AD0BD6AC64ED81  : public Mono
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___mobileUI_7;
 	// UnityEngine.GameObject CharacterSpawner::player
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player_8;
+	// UnityEngine.GameObject[] CharacterSpawner::players
+	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* ___players_9;
 	// UnityEngine.Transform CharacterSpawner::adminPos
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___adminPos_9;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___adminPos_10;
 	// UnityEngine.Transform CharacterSpawner::guestPos
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___guestPos_10;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___guestPos_11;
 	// StarterAssets.UICanvasControllerInput CharacterSpawner::mobileCanvus
-	UICanvasControllerInput_t70B570B8D362800A345FA81C516A266A2FE5318F* ___mobileCanvus_11;
+	UICanvasControllerInput_t70B570B8D362800A345FA81C516A266A2FE5318F* ___mobileCanvus_12;
 };
 
 // UnityEngine.UI.Dropdown
@@ -9404,7 +9404,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CharacterSpawner_SpawnPlayer_mD390845382
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* V_0 = NULL;
 	{
 		// var spawnPos=guestPos;
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___guestPos_10;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___guestPos_11;
 		V_0 = L_0;
 		// if(UIManager.Instance.playfabAuthentication.UserName.Contains("Admin"))
 		UIManager_t16825A2483574F37D7D47AB939A6FA639678B1F3* L_1 = ((UIManager_t16825A2483574F37D7D47AB939A6FA639678B1F3_StaticFields*)il2cpp_codegen_static_fields_for(UIManager_t16825A2483574F37D7D47AB939A6FA639678B1F3_il2cpp_TypeInfo_var))->___Instance_5;
@@ -9422,7 +9422,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CharacterSpawner_SpawnPlayer_mD390845382
 	}
 	{
 		// spawnPos=adminPos;
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_5 = __this->___adminPos_9;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_5 = __this->___adminPos_10;
 		V_0 = L_5;
 		// print("Admin Joined");
 		MonoBehaviour_print_m9E6FF71C673B651F35DD418C293CFC50C46803B6(_stringLiteralDEBC83631E7A57C7E9531DA8B384ABB12C6B8B9D, NULL);
@@ -9474,7 +9474,7 @@ IL_0058:
 		NullCheck(L_20);
 		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_20, (bool)1, NULL);
 		// mobileCanvus.starterAssetsInputs=player.GetComponent<StarterAssetsInputs>();
-		UICanvasControllerInput_t70B570B8D362800A345FA81C516A266A2FE5318F* L_21 = __this->___mobileCanvus_11;
+		UICanvasControllerInput_t70B570B8D362800A345FA81C516A266A2FE5318F* L_21 = __this->___mobileCanvus_12;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_22 = __this->___player_8;
 		NullCheck(L_22);
 		StarterAssetsInputs_t133BB053DB5E88FF96AD7A46722CFDD182A8B657* L_23;
@@ -12671,17 +12671,11 @@ IL_0019:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VoiceDetector_Update_mCEBC9720458FFFD194A81E6DCA7AA7B89AD9F48A (VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1* __this, const RuntimeMethod* method) 
 {
 	{
-		// if(photonView.IsMine)
+		// if(photonView.IsMine||true)
 		PhotonView_t43F3D22FF3D00F7824E82D741D70F9CB55642E6B* L_0 = __this->___photonView_5;
 		NullCheck(L_0);
 		bool L_1;
 		L_1 = PhotonView_get_IsMine_mE26FB70A42C0D92C66536B45D7A7F8F491C8D648_inline(L_0, NULL);
-		if (!L_1)
-		{
-			goto IL_0039;
-		}
-	}
-	{
 		// this.recorderSprite.SetActive(this.photonVoiceView.IsRecording);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_2 = __this->___recorderSprite_7;
 		PhotonVoiceView_tCAADBEF2C0E22FD4386AFBE797B39CCFDB4FE0E9* L_3 = __this->___photonVoiceView_4;
@@ -12698,10 +12692,24 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VoiceDetector_Update_mCEBC9720458FFFD194
 		L_7 = PhotonVoiceView_get_IsSpeaking_m8412D81FD36F7800BC5E4A1E6E32C50EE691067D(L_6, NULL);
 		NullCheck(L_5);
 		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_5, L_7, NULL);
+		// }
+		return;
 	}
-
-IL_0039:
+}
+// System.Void VoiceDetector::DetectVoice(System.Boolean,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VoiceDetector_DetectVoice_m26BDDB9186350DAB2766222DCABF262FE0C0FA0C (VoiceDetector_t01C4661C146B069E26348595E23BAFDC307F50A1* __this, bool ___0_speak, bool ___1_record, const RuntimeMethod* method) 
+{
 	{
+		// this.recorderSprite.SetActive(record);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0 = __this->___recorderSprite_7;
+		bool L_1 = ___1_record;
+		NullCheck(L_0);
+		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_0, L_1, NULL);
+		// this.speakerSprite.SetActive(speak);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_2 = __this->___speakerSprite_8;
+		bool L_3 = ___0_speak;
+		NullCheck(L_2);
+		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_2, L_3, NULL);
 		// }
 		return;
 	}
